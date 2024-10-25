@@ -50,7 +50,6 @@ stubData:
 |Key|Setting contents|
 |--|--|
 |version|The version of the PACT Tech Spec to test against.|
-|url|URL to a custom OpenAPI schema, if no version is specified. Can be a `http(s)://` or local `file://` resource.|
 |authContextPath|Context path of Action Authenticate. Usually, this context path plus `/auth/token` becomes the endpoint. If OpenID Connect Discovery is supported, this context path plus `/.well-known/openid-configuration` is accessed to determine the authentication method.|
 |userName|Username to use in Action Authenticate.|
 |password|Password to use in Action Authenticate.|
@@ -63,6 +62,7 @@ stubData:
 |stubContextPath|Action Events requires two-way communication. Setting the context path here will start the HTTP server with the configured protocol and port. The application under test should be able to respond to this context path when responding to requests.|
 |stubData/*|If you want to set a fixed value for ProductFootprint when responding to an Action Events request, specify the ProductFootprint property under `stubData`.|
 |keepStub|If set to `true`, the stub server will not terminate when the test case ends. This can be used when sending Action Events from the application under test and verifying the request data.|
+|url|OPTIONAL: URL to a custom schema for development purposes, if no version is specified. Can be a `http(s)://` or local `file://` resource.|
 
 
 ## Test
