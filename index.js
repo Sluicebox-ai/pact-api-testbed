@@ -11,7 +11,8 @@ import Inquirer from "inquirer";
 import { readFileSync } from "fs";
 import { PathfinderValidator } from "./validator.js";
 import YAML from "js-yaml";
-import { loadTextResource, getFileList } from "./github.js";
+import { getFileList } from "./github.js";
+import { loadTextResource } from "./resource.js";
 
 const WBCSD_PACT_OPENAPI_URL = "https://raw.githubusercontent.com/wbcsd/pact-openapi/main/";
 
