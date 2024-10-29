@@ -2,6 +2,7 @@
 
 import { Http } from "./http.js";
 import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
 
 /**
  * Load a resource from a URL.
@@ -26,7 +27,7 @@ export async function loadResource(url)
     } 
     else if (url.startsWith("file://") || !/^\w+:\/\//.test(url)) {
         // Any URL starting witj file:// or not containing a scheme is treated as a local file path.  
-        let data = readFileSync(url);
+        let data = readFileSync(fileURLToPath(url));
         if (!(data instanceof Buffer)) {
             throw new Error(`File data is not binary: ${data}`);
         }
