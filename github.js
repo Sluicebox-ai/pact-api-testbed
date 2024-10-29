@@ -6,8 +6,6 @@
 // @ts-check
 
 import { Http } from "./http.js";
-import { readFileSync } from "fs";
-
 
 const GITHUB_API_VERSION = "2022-11-28";
 const USER_AGENT = "pact-api-testbed";
