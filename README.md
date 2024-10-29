@@ -40,6 +40,7 @@ limitSupport: true
 eventsSupport: true
 log: stdout
 stubContextPath: http://localhost:3000
+keepStub: true
 stubData:
   companyIds:
     - urn:uuid:38503239-8214-43c6-bc4e-3580a6def72b
@@ -65,6 +66,13 @@ stubData:
 |url|OPTIONAL: URL to a custom schema for development purposes, if no version is specified. Can be a `http(s)://` or local `file://` resource.|
 
 
+### Obtaining the OpenAPI specification
+
+PACT Technical Specifications that the application must follow are also provided in the OpenAPI format. This tool usually obtains them over the Internet and inspects the application's response.
+
+To test from an environment without Internet access, download the OpenAPI specification from [PACT Network OpenAPI Schema Definitions](https://github.com/wbcsd/pact-openapi) in advance and specify the file path in `url` of the configuration file.
+
+
 ## Test
 
 To run this tool, use npx.
@@ -80,6 +88,14 @@ Set the YAML file created in [Test Settings](#test-settings) to the setting argu
 ```sh
 npx @wbcsd/pact-api-testbed --setting test.yaml
 ```
+
+Alternatively, you can configure it interactively on the command line by starting it without any parameters:
+
+```sh
+npx @wbcsd/pact-api-testbed
+```
+
+If the application being tested responds according to PACT Technical Specifications, `PASS` is output. If a problem is found, `NG` is output along with the cause.
 
 
 ## License
