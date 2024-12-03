@@ -442,6 +442,26 @@ export class PathfinderValidator {
                     ]
                 },
                 {
+                    title: "Missing access token",
+                    contextPath: dataContextPath,
+                    sequence: [
+                        {
+                            path: pathPrefex + "/footprints",
+                            method: "get",
+                            request: {
+                                headers: {
+                                    host: host,
+                                    "user-agent": userAgent
+                                }
+                            },
+                            response: {
+                                status: 403,
+                                body: JSON.stringify({code: 'AccessDenied'})
+                            }
+                        }
+                    ]
+                },
+                {
                     title: "Illegal access token",
                     contextPath: dataContextPath,
                     sequence: [
@@ -456,8 +476,8 @@ export class PathfinderValidator {
                                 }
                             },
                             response: {
-                                status: 400,
-                                body: JSON.stringify({code: 'BadRequest'})
+                                status: 403,
+                                body: JSON.stringify({code: 'AccessDenied'})
                             }
                         }
                     ]
